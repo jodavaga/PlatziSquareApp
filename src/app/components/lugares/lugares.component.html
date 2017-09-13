@@ -1,0 +1,28 @@
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]=15 >
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr>
+
+<div class="container animated fadeIn fast">
+  <div class="row">
+    <div class="col-md-7">
+      <h2>Lista de negocios <span> 
+        <button [routerLink]="['/agregar']"
+                class="btn btn-outline-success float-right">Agregar Negocio</button></span></h2>
+      <hr>
+
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugares">
+          <li (click)="verDetalle(lugar.id)" *ngIf="lugar.active"
+              class="list-group-item puntero">{{lugar.nombre}}</li>
+        </ng-container>  
+      </ul>
+    </div>
+
+    <div class="col-md-5">
+      <h3>Destacados</h3>
+      <hr>
+    </div>
+  </div>
+</div>
