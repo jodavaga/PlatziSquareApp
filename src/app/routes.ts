@@ -10,7 +10,7 @@ const ROUTES: Routes = [
   { path: 'lugares', component: LugaresComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'detalle/:id', component: DetalleComponent },
-  { path: 'agregar', component: AgregarLugarComponent },
+  { path: 'agregar/:id', component: AgregarLugarComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'lugares' }
 ];
 

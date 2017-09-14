@@ -1,6 +1,10 @@
 <div class="container top-container animated fadeIn fast">
     <div class="jumbotron">
-        <h1 class="display-3">{{lugar.nombre}}</h1>
+        <h1 class="display-3">{{lugar.nombre}} 
+          <small>
+          <button [routerLink]="['/agregar', lugar.id]" class="btn btn-outline-info">Editar</button>
+          </small> 
+        </h1>
         <p class="lead">{{lugar.description}}</p>
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>

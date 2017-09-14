@@ -20,7 +20,7 @@ export class DetalleComponent implements OnInit {
               
              this._lugaresService.getLugar(this.id)
                                   .subscribe(lugar => this.lugar = lugar);
-              console.log(this.lugar);
+              //console.log('editar :'+ this.lugar);
               
             })
   }

@@ -79,7 +79,10 @@ export class LugaresService {
   }
 
   guardarLugar(lugar){
-    console.log(lugar);
+    this.afDb.database.ref(`lugares/${ lugar.id }`).set(lugar);
+  }
+
+  editarLugar(lugar){
     this.afDb.database.ref(`lugares/${ lugar.id }`).set(lugar);
   }
 
