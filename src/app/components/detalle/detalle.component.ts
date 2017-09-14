@@ -18,8 +18,9 @@ export class DetalleComponent implements OnInit {
             .subscribe( params => {
               this.id = params['id'];
               
-              this.lugar = this._lugaresService.getLugar(this.id);
-              console.log(this.id);
+             this._lugaresService.getLugar(this.id)
+                                  .subscribe(lugar => this.lugar = lugar);
+              console.log(this.lugar);
               
             })
   }

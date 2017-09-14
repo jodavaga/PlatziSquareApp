@@ -8,8 +8,9 @@ import { Router } from "@angular/router";
 })
 export class LugaresComponent implements OnInit {
 
-  lat = 3.4060674;
-  lng = -76.551282;
+  lat = 3.4074809;
+  lng = -76.5515617;
+
 
   lugares = [];
 
@@ -17,7 +18,8 @@ export class LugaresComponent implements OnInit {
                private router: Router ) { }
 
   ngOnInit() {
-    this.lugares = this._lugaresService.getLugares();
+    this._lugaresService.getLugares()
+                          .subscribe(lugares => this.lugares = lugares);
   }
 
   verDetalle( id ){

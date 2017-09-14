@@ -1,3 +1,64 @@
-<p>
-  agregar-lugar works!
-</p>
+<div class="container top-container">
+    <h2>Crear Nuevo negocio</h2>
+    <hr>
+    <form> 
+        <div class="form-group">
+          <label>Negocio</label>
+          <input [(ngModel)]="lugar.nombre"
+                  name="nombre"
+                  type="text" class="form-control" placeholder="Nombre">
+        </div>
+    
+        <div class="form-group">
+          <label>Descripcion</label>
+          <textarea [(ngModel)]="lugar.description"
+                  name="description"
+                  type="text" class="form-control" placeholder="descripcion del negocio"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Distancia</label>
+          <input [(ngModel)]="lugar.distancia"
+                  name="distancia"
+                  type="number" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Cercania</label>
+          <input [(ngModel)]="lugar.cercania"
+                  name="cercania"
+                  type="number" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label>Plan</label>
+            <input [(ngModel)]="lugar.plan"
+                    name="plan"
+                    type="text" class="form-control" placeholder="tipo de plan">
+          </div>
+
+          <h3>Datos de direccion</h3>
+          <hr>
+          <div class="form-group">
+                <label>Direccion <small>(calle y numero)</small></label>
+                <input [(ngModel)]="lugar.calle"
+                        name="calle"
+                        type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                        <label>Ciudad</label>
+                        <input [(ngModel)]="lugar.ciudad"
+                                name="ciudad"
+                                type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                                <label>Pais</label>
+                                <input [(ngModel)]="lugar.pais"
+                                        name="pais"
+                                        type="text" class="form-control">
+                                </div>
+          
+        <button (click)="guardarLugar()"
+                type="submit" class="btn btn-outline-primary">Guardar negocio</button>
+      </form>
+</div>

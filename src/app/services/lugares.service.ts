@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from "angularfire2/database/database";
+import { Http } from "@angular/http";
 
 @Injectable()
 export class LugaresService {
 
-  lugares = [
+  /*lugares = [
     {
       id: 1,
       description: 'Este es un lugar de una ciudad en cuestion', 
@@ -59,18 +61,31 @@ export class LugaresService {
       nombre: "Lavanderia33 - la rosa"
     }
     
-  ];
+  ];*/
 
-  constructor() { }
+  geoDataURL = "http://maps.google.com/maps/api/geocode/json?address=";
+
+  constructor(private afDb: AngularFireDatabase,
+              private http: Http
+            ) { }
 
   getLugares(){
-    return this.lugares;
+    //return this.lugares;
+    return this.afDb.list('lugares/');
   }
 
-  getLugar(id){
-    
-    return this.lugares.filter((lugar) => id == lugar.id)[0];
-    
+  getLugar(id){ 
+    return this.afDb.object(`lugares/${ id }`);
+  }
+
+  guardarLugar(lugar){
+    console.log(lugar);
+    this.afDb.database.ref(`lugares/${ lugar.id }`).set(lugar);
+  }
+
+  obtenerGeoData(direccion){
+    //http://maps.google.com/maps/api/geocode/json?address=78-43+diagonal+70f,+Bogota,Colombia
+   return this.http.get(`${ this.geoDataURL }${ direccion }`);
   }
 
 }
